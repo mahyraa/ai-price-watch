@@ -1,6 +1,6 @@
 # AI Price Watch
 
-Tracks published API pricing across 7 AI model providers (102 models), detects what changed,
+Tracks published API pricing across 7 AI model providers (111 models), detects what changed,
 and publishes a weekly digest to a public page.
 
 **→ [Live site](https://mahyraa.github.io/ai-price-watch/)**
@@ -97,7 +97,7 @@ src/diff.py           snapshot comparison and change classification
 src/summarize.py      changes → weekly digest
 src/render.py         static site generation
 src/run.py            orchestration
-tests/test_diff.py    13 tests on the comparison logic
+tests/test_diff.py    14 tests on the comparison logic
 data/snapshots/       one JSON file per provider, committed each run
 ```
 
@@ -115,7 +115,7 @@ cosmetic rename, a sub-threshold price move, a page that returns nothing.
   different model list between runs, which shows up as a phantom added/removed
   model. The prompt is written to minimise this, but the honest fix is to require
   a change to persist across two consecutive runs before reporting it.
-- Providers that render pricing entirely in client-side JavaScript won'''t extract
+- Providers that render pricing entirely in client-side JavaScript won't extract
   from plain HTTP. xAI, Groq and Fireworks were dropped for this reason — adding
   them back would mean running a headless browser on every check, which is a lot
   of maintenance for three more providers.
