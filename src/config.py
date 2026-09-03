@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT / "config" / "sources.yaml"
 DATA_DIR = ROOT / "data"
 SNAPSHOT_DIR = DATA_DIR / "snapshots"
-SITE_DIR = ROOT / "site"
+SITE_DIR = ROOT / "docs"   # GitHub Pages serves /docs
 
 
 @dataclass(frozen=True)

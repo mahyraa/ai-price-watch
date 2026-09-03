@@ -35,7 +35,7 @@ jobs:
         run: |
           git config user.name  "ai-price-watch"
           git config user.email "actions@github.com"
-          git add data/ site/
+          git add data/ docs/
           if git diff --staged --quiet; then
             echo "nothing changed this run"
           else

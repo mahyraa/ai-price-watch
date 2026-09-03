@@ -72,7 +72,7 @@ python -m src.run --only anthropic   # one source, for debugging
 python -m pytest tests/ -q  # the diff engine's tests
 ```
 
-Output lands in `site/index.html`, snapshots in `data/snapshots/`.
+Output lands in `docs/index.html` (served by GitHub Pages), snapshots in `data/snapshots/`.
 
 Cost is roughly $0.02 per run — seven cheap extraction calls and one digest.
 

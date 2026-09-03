@@ -10,3 +10,6 @@ data/raw/
 # local scratch, not part of the project
 _diagnostic.txt
 check.command
+
+# superseded by docs/ (GitHub Pages publishing folder)
+site/
