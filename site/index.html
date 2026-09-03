@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Price Watch — token pricing across 7 providers</title>
+<meta name="description" content="Tracks published API pricing across major AI model providers and reports what changed each week.">
+<style>
+  :root {
+    --bg: #fbfaf9; --panel: #ffffff; --ink: #1a1815; --muted: #6b6560;
+    --line: #e6e1db; --accent: #b4551f; --up: #a8341f; --down: #2c6e49;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #171614; --panel: #201e1c; --ink: #efece8; --muted: #9c948c;
+      --line: #322e2a; --accent: #e08a4f; --up: #e8735c; --down: #6bbf8f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 48px 24px 80px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 36px; }
+  h1 { font-size: 30px; letter-spacing: -0.02em; margin: 0 0 8px; }
+  .sub { color: var(--muted); margin: 0; max-width: 62ch; }
+  .meta { margin-top: 16px; font-size: 13px; color: var(--muted); font-family: var(--mono); }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.09em;
+       color: var(--muted); margin: 44px 0 14px; font-weight: 600; }
+  .panel { background: var(--panel); border: 1px solid var(--line);
+           border-radius: 10px; padding: 22px 24px; }
+  .digest p { margin: 0 0 12px; }
+  .digest p:last-child { margin-bottom: 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase;
+       letter-spacing: 0.05em; color: var(--muted); padding: 0 12px 10px 0;
+       border-bottom: 1px solid var(--line); }
+  td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .num { font-family: var(--mono); text-align: right; white-space: nowrap; }
+  .provider { font-weight: 600; }
+  .note { color: var(--muted); font-size: 12px; }
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .change { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .change:last-child { border-bottom: none; }
+  .change .when { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .tag { display: inline-block; font-size: 11px; font-family: var(--mono);
+         padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line);
+         color: var(--muted); margin-right: 8px; }
+  .tag.major { color: var(--accent); border-color: var(--accent); }
+  .up { color: var(--up); } .down { color: var(--down); }
+  .empty { color: var(--muted); font-style: italic; }
+  .broken { border-left: 3px solid var(--up); padding-left: 14px; }
+  footer { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line);
+           font-size: 13px; color: var(--muted); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>AI Price Watch</h1>
+  <p class="sub">Published API pricing across 7 model providers,
+  re-checked weekly. Prices are extracted into a normalized record per model, so a
+  page redesign doesn't register as a change — only the pricing does.</p>
+  <p class="meta">Last run 02 Sep 2026 22:38 UTC · 111 models tracked · 1 runs recorded</p>
+</header>
+
+<h2>This week</h2>
+<div class="panel digest">
+<p>Baseline established: 111 models across 7 providers are now being tracked. Changes will appear here from the next weekly run onward.</p></div>
+
+
+<h2>Current pricing</h2>
+<div class="panel scroll">
+  <table>
+    <thead>
+      <tr>
+        <th>Provider</th><th>Model</th>
+        <th class="num">Input&nbsp;/&nbsp;1M</th>
+        <th class="num">Output&nbsp;/&nbsp;1M</th>
+        <th class="num">Context</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Fable 5.1</td>
+        <td class="num">$10</td>
+        <td class="num">$50</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Mythos 5.1<br><span class="note">limited availability</span></td>
+        <td class="num">$10</td>
+        <td class="num">$50</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Fable 5</td>
+        <td class="num">$10</td>
+        <td class="num">$50</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Mythos 5<br><span class="note">limited availability</span></td>
+        <td class="num">$10</td>
+        <td class="num">$50</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Opus 5</td>
+        <td class="num">$5</td>
+        <td class="num">$25</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Opus 4.8</td>
+        <td class="num">$5</td>
+        <td class="num">$25</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Opus 4.7</td>
+        <td class="num">$5</td>
+        <td class="num">$25</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Opus 4.6</td>
+        <td class="num">$5</td>
+        <td class="num">$25</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Opus 4.5</td>
+        <td class="num">$5</td>
+        <td class="num">$25</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Opus 4.1<br><span class="note">retired, except on Bedrock and Google Cloud</span></td>
+        <td class="num">$15</td>
+        <td class="num">$75</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Opus 4<br><span class="note">retired, except on Google Cloud</span></td>
+        <td class="num">$15</td>
+        <td class="num">$75</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Sonnet 5</td>
+        <td class="num">$2</td>
+        <td class="num">$10</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Sonnet 4.6</td>
+        <td class="num">$3</td>
+        <td class="num">$15</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Sonnet 4.5</td>
+        <td class="num">$3</td>
+        <td class="num">$15</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Sonnet 4<br><span class="note">retired, except on Bedrock and Google Cloud</span></td>
+        <td class="num">$3</td>
+        <td class="num">$15</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Haiku 4.5</td>
+        <td class="num">$1</td>
+        <td class="num">$5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Anthropic</td>
+        <td>Claude Haiku 3.5<br><span class="note">retired, except on Bedrock and Google Cloud</span></td>
+        <td class="num">$0.8</td>
+        <td class="num">$4</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Cohere</td>
+        <td>Command<br><span class="note">Legacy model pricing for existing customers</span></td>
+        <td class="num">$1</td>
+        <td class="num">$2</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Cohere</td>
+        <td>Command-light<br><span class="note">Legacy model pricing for existing customers</span></td>
+        <td class="num">$0.3</td>
+        <td class="num">$0.6</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Cohere</td>
+        <td>Command R 03-2024<br><span class="note">Legacy model pricing for existing customers</span></td>
+        <td class="num">$0.5</td>
+        <td class="num">$1.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Cohere</td>
+        <td>Command R+ 04-2024<br><span class="note">Legacy model pricing for existing customers</span></td>
+        <td class="num">$3</td>
+        <td class="num">$15</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Cohere</td>
+        <td>Command R+ 08-2024<br><span class="note">Legacy model pricing for existing customers</span></td>
+        <td class="num">$2.5</td>
+        <td class="num">$10</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Cohere</td>
+        <td>Aya Expanse 8B<br><span class="note">Research model via API</span></td>
+        <td class="num">$0.5</td>
+        <td class="num">$1.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Cohere</td>
+        <td>Aya Expanse 32B<br><span class="note">Research model via API</span></td>
+        <td class="num">$0.5</td>
+        <td class="num">$1.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">DeepSeek</td>
+        <td>deepseek-v4-flash<br><span class="note">Cache miss off-peak rate used as base; peak rates are 2x (input $0.44/M, output $1.32/M). Cache hit rate: $0.007/M input. Image tokens billed as input tokens.</span></td>
+        <td class="num">$0.22</td>
+        <td class="num">$0.66</td>
+        <td class="num">1M</td>
+      </tr>
+      <tr>
+        <td class="provider">DeepSeek</td>
+        <td>deepseek-v4-pro<br><span class="note">Cache miss off-peak rate used as base; peak rates are 2x (input $1.32/M, output $3.96/M). Cache hit rate: $0.022/M input.</span></td>
+        <td class="num">$0.66</td>
+        <td class="num">$1.98</td>
+        <td class="num">1M</td>
+      </tr>
+      <tr>
+        <td class="provider">DeepSeek</td>
+        <td>deepseek-v4-flash-vision-exp<br><span class="note">Cache miss off-peak rate used as base; peak rates are 2x (input $0.44/M, output $1.32/M). Cache hit rate: $0.007/M input. Image tokens billed as input tokens.</span></td>
+        <td class="num">$0.22</td>
+        <td class="num">$0.66</td>
+        <td class="num">1M</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.8-flash<br><span class="note">Paid tier standard pricing through Dec 31, 2026. Increases to $1.50 input / $7.50 output starting Jan 1, 2027.</span></td>
+        <td class="num">$0.75</td>
+        <td class="num">$3.75</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.7-flash<br><span class="note">Paid tier standard pricing through Dec 31, 2026. Increases to $1.50 input / $7.50 output starting Jan 1, 2027.</span></td>
+        <td class="num">$0.75</td>
+        <td class="num">$3.75</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.6-flash<br><span class="note">Paid tier standard pricing through Dec 31, 2026. Increases to $1.50 input / $7.50 output starting Jan 1, 2027.</span></td>
+        <td class="num">$0.75</td>
+        <td class="num">$3.75</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.5-flash</td>
+        <td class="num">$1.5</td>
+        <td class="num">$9</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.5-live-translate-preview<br><span class="note">Audio modality. Alternative pricing: $0.0053/min input, $0.0315/min output.</span></td>
+        <td class="num">$3.5</td>
+        <td class="num">$21</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.5-transcribe-live<br><span class="note">Using text rate as primary. Audio input at $3.50/M, text output at $21.00/M tokens.</span></td>
+        <td class="num">$3.5</td>
+        <td class="num">$21</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.5-transcribe<br><span class="note">Audio input, text output.</span></td>
+        <td class="num">$2</td>
+        <td class="num">$12</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.5-flash-lite<br><span class="note">Text/image/video/audio unified pricing for input.</span></td>
+        <td class="num">$0.3</td>
+        <td class="num">$2.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.1-flash-lite<br><span class="note">Text rate. Audio input: $0.50/M.</span></td>
+        <td class="num">$0.25</td>
+        <td class="num">$1.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-omni-1.1-flash<br><span class="note">Text output rate. Video output: $17.50/M tokens.</span></td>
+        <td class="num">$1.5</td>
+        <td class="num">$9</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-omni-flash-preview<br><span class="note">Text output rate. Video output: $17.50/M tokens.</span></td>
+        <td class="num">$1.5</td>
+        <td class="num">$9</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.1-pro-preview<br><span class="note">Tiered pricing: $2.00/$12.00 for prompts ≤200k tokens, $4.00/$18.00 for prompts >200k tokens.</span></td>
+        <td class="num">$2</td>
+        <td class="num">$12</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.1-pro-preview-customtools<br><span class="note">Tiered pricing: $2.00/$12.00 for prompts ≤200k tokens, $4.00/$18.00 for prompts >200k tokens.</span></td>
+        <td class="num">$2</td>
+        <td class="num">$12</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.1-flash-live-preview<br><span class="note">Text rate. Audio input: $3.00/M, audio output: $12.00/M. Image/video input: $1.00/M.</span></td>
+        <td class="num">$0.75</td>
+        <td class="num">$4.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.1-flash-image<br><span class="note">Text output rate. Image output: $60.00/M tokens.</span></td>
+        <td class="num">$0.5</td>
+        <td class="num">$3</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.1-flash-lite-image<br><span class="note">Text output rate. Image output: $30.00/M tokens.</span></td>
+        <td class="num">$0.25</td>
+        <td class="num">$1.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3.1-flash-tts-preview<br><span class="note">Text input, audio output.</span></td>
+        <td class="num">$1</td>
+        <td class="num">$20</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3-flash-preview<br><span class="note">Text/image/video rate. Audio input: $1.00/M.</span></td>
+        <td class="num">$0.5</td>
+        <td class="num">$3</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-3-pro-image<br><span class="note">Text output rate. Image output: $120.00/M tokens.</span></td>
+        <td class="num">$2</td>
+        <td class="num">$12</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-2.5-pro<br><span class="note">Tiered pricing: $1.25/$10.00 for prompts ≤200k tokens, $2.50/$15.00 for prompts >200k tokens.</span></td>
+        <td class="num">$1.25</td>
+        <td class="num">$10</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-2.5-flash<br><span class="note">Text/image/video rate. Audio input: $1.00/M.</span></td>
+        <td class="num">$0.3</td>
+        <td class="num">$2.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-2.5-flash-lite<br><span class="note">Text/image/video rate. Audio input: $0.30/M.</span></td>
+        <td class="num">$0.1</td>
+        <td class="num">$0.4</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-2.5-flash-native-audio-preview-12-2025<br><span class="note">Text input/output rate. Audio/video input: $3.00/M. Audio output: $12.00/M.</span></td>
+        <td class="num">$0.5</td>
+        <td class="num">$2</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-2.5-flash-image<br><span class="note">Text input rate. Image output priced per image at $0.039.</span></td>
+        <td class="num">$0.3</td>
+        <td class="num">$2.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-2.5-flash-preview-tts<br><span class="note">Text input, audio output.</span></td>
+        <td class="num">$0.5</td>
+        <td class="num">$10</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-2.5-pro-preview-tts<br><span class="note">Text input, audio output.</span></td>
+        <td class="num">$1</td>
+        <td class="num">$20</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>veo-3.1-generate-preview<br><span class="note">Priced per second of video, not per token: $0.40 (720p/1080p), $0.60 (4k). Not included in token-based pricing.</span></td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>veo-3.1-fast-generate-preview<br><span class="note">Priced per second of video, not per token: $0.10 (720p), $0.12 (1080p), $0.30 (4k). Not included in token-based pricing.</span></td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>veo-3.1-lite-generate-preview<br><span class="note">Priced per second of video, not per token: $0.05 (720p), $0.08 (1080p). Not included in token-based pricing.</span></td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>lyria-3-clip-preview<br><span class="note">Priced per song request ($0.04), not per token. Not included in token-based pricing.</span></td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>lyria-3-pro-preview<br><span class="note">Priced per song request ($0.08), not per token. Not included in token-based pricing.</span></td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-embedding-2<br><span class="note">Text input rate. Image input: $0.45/M. Audio input: $6.50/M. Video input: $12.00/M. No output tokens for embedding.</span></td>
+        <td class="num">$0.2</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-embedding-001<br><span class="note">Text-only embedding model. No output tokens.</span></td>
+        <td class="num">$0.15</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-robotics-er-2-preview</td>
+        <td class="num">$2</td>
+        <td class="num">$10</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-robotics-er-2-streaming-preview</td>
+        <td class="num">$2</td>
+        <td class="num">$10</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-robotics-er-1.6-preview<br><span class="note">Text/image/video rate. Audio input: $2.00/M.</span></td>
+        <td class="num">$1</td>
+        <td class="num">$5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Google (Gemini)</td>
+        <td>gemini-2.5-computer-use-preview-10-2025<br><span class="note">Tiered pricing: $1.25/$10.00 for prompts ≤200k tokens, $2.50/$15.00 for prompts >200k tokens.</span></td>
+        <td class="num">$1.25</td>
+        <td class="num">$10</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Mistral</td>
+        <td>Mistral Large<br><span class="note">Standard pricing per million tokens</span></td>
+        <td class="num">$0.5</td>
+        <td class="num">$1.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Mistral</td>
+        <td>Mistral Medium<br><span class="note">Recommended for most tasks but specific per-token pricing not published on this page</span></td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Mistral</td>
+        <td>Mistral Small<br><span class="note">Recommended for cost-sensitive projects but specific per-token pricing not published on this page</span></td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">OpenAI</td>
+        <td>gpt-5.6-sol<br><span class="note">Standard tier with short context. Cached input $0.40/M, cache writes $20.00/M. Long context: input $8.00/M, output $10.00/M. Batch, Flex, and Fast mode tiers available at different rates. Promotional pricing available at least through November 21, 2026.</span></td>
+        <td class="num">$4</td>
+        <td class="num">$5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">OpenAI</td>
+        <td>gpt-5.6-terra<br><span class="note">Standard tier with short context. Cached input $0.20/M, cache writes $12.00/M. Long context: input $4.00/M, output $5.00/M. Batch, Flex, and Fast mode tiers available at different rates.</span></td>
+        <td class="num">$2</td>
+        <td class="num">$2.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">OpenAI</td>
+        <td>gpt-5.6-luna<br><span class="note">Standard tier with short context. Cached input $0.02/M, cache writes $1.20/M. Long context: input $0.40/M, output $0.50/M. Batch, Flex, and Fast mode tiers available at different rates.</span></td>
+        <td class="num">$0.2</td>
+        <td class="num">$0.25</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">OpenAI</td>
+        <td>gpt-5.6-cyber<br><span class="note">Short context only. Cached input $1.25/M, cache writes $75.00/M. Daybreak cyber model.</span></td>
+        <td class="num">$12.5</td>
+        <td class="num">$15.625</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">OpenAI</td>
+        <td>gpt-realtime-2.1<br><span class="note">Text modality rates. Audio: input $32.00/M, cached input $0.40/M, output $64.00/M. Image: input $5.00/M, cached input $0.50/M.</span></td>
+        <td class="num">$4</td>
+        <td class="num">$24</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">OpenAI</td>
+        <td>gpt-realtime-2.1-mini<br><span class="note">Text modality rates. Audio: input $10.00/M, cached input $0.30/M, output $20.00/M. Image: input $0.80/M, cached input $0.08/M.</span></td>
+        <td class="num">$0.6</td>
+        <td class="num">$2.4</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">OpenAI</td>
+        <td>gpt-image-2<br><span class="note">Text modality rates (standard tier). Image modality: input $8.00/M, cached input $2.00/M, output $30.00/M. Batch rates available.</span></td>
+        <td class="num">$5</td>
+        <td class="num">$30</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">OpenAI</td>
+        <td>chat-latest<br><span class="note">ChatGPT specialized model. Cached input $0.50/M. Fast mode available at $10.00/M input, $60.00/M output.</span></td>
+        <td class="num">$5</td>
+        <td class="num">$30</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">OpenAI</td>
+        <td>gpt-5.3-codex<br><span class="note">Codex specialized model. Cached input $0.175/M. Fast mode available at $3.50/M input, $28.00/M output.</span></td>
+        <td class="num">$1.75</td>
+        <td class="num">$14</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">OpenAI</td>
+        <td>o4-mini-2025-04-16<br><span class="note">Fine-tuning inference pricing (standard tier). Cached input $1.00/M. Training: $100.00/hour. Batch rates available. Data sharing discount available.</span></td>
+        <td class="num">$4</td>
+        <td class="num">$16</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">OpenAI</td>
+        <td>gpt-4o-transcribe<br><span class="note">Transcription model.</span></td>
+        <td class="num">$2.5</td>
+        <td class="num">$10</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">OpenAI</td>
+        <td>gpt-4o-mini-transcribe<br><span class="note">Transcription model.</span></td>
+        <td class="num">$1.25</td>
+        <td class="num">$5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>MiniMax M3</td>
+        <td class="num">$0.3</td>
+        <td class="num">$1.2</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Kimi K3</td>
+        <td class="num">$3</td>
+        <td class="num">$15</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>DeepSeek V4 Flash 0731</td>
+        <td class="num">$0.14</td>
+        <td class="num">$0.28</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Qwen3.8-2.4T-A95B</td>
+        <td class="num">$2</td>
+        <td class="num">$6</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Muse Glimmer 30B</td>
+        <td class="num">$0.35</td>
+        <td class="num">$1.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>DeepSeek V4 Pro 0813</td>
+        <td class="num">$1.32</td>
+        <td class="num">$3.96</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>GLM-5.3</td>
+        <td class="num">$1.4</td>
+        <td class="num">$4.4</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>GLM-5.3-Flash</td>
+        <td class="num">$0.15</td>
+        <td class="num">$0.5</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Gemma 4 31B</td>
+        <td class="num">$0.39</td>
+        <td class="num">$0.97</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Qwen3.7-Plus</td>
+        <td class="num">$0.32</td>
+        <td class="num">$1.28</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>GLM-5.2</td>
+        <td class="num">$1.4</td>
+        <td class="num">$4.4</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Ternary Bonsai 27B</td>
+        <td class="num">$0</td>
+        <td class="num">$0</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Inkling</td>
+        <td class="num">$1</td>
+        <td class="num">$4.05</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>LFM2.5-8B-A1B</td>
+        <td class="num">$0.03</td>
+        <td class="num">$0.12</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Qwen3.8 Flash</td>
+        <td class="num">$0.15</td>
+        <td class="num">$0.47</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Qwen3.7-Max</td>
+        <td class="num">$1.25</td>
+        <td class="num">$3.75</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>gpt-oss-120B</td>
+        <td class="num">$0.15</td>
+        <td class="num">$0.6</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Qwen3.5-397B-A17B</td>
+        <td class="num">$0.6</td>
+        <td class="num">$3.6</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Qwen3.5 9B</td>
+        <td class="num">$0.17</td>
+        <td class="num">$0.25</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Cogito v2.1 671B</td>
+        <td class="num">$1.25</td>
+        <td class="num">$1.25</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Rnj-1 Instruct</td>
+        <td class="num">$0.15</td>
+        <td class="num">$0.15</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Llama 3.3 70B</td>
+        <td class="num">$1.04</td>
+        <td class="num">$1.04</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>MiniMax M2.7</td>
+        <td class="num">$0.3</td>
+        <td class="num">$1.2</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Qwen3.6-Plus</td>
+        <td class="num">$0.5</td>
+        <td class="num">$3</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Qwen2.5 7B Instruct Turbo</td>
+        <td class="num">$0.3</td>
+        <td class="num">$0.3</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Llama 3 8B Instruct Lite</td>
+        <td class="num">$0.14</td>
+        <td class="num">$0.14</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Qwen3 235B A22B Instruct 2507 FP8 Throughput</td>
+        <td class="num">$0.2</td>
+        <td class="num">$0.6</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>NVIDIA Parakeet TDT 0.6B V3 Realtime<br><span class="note">Per 1M characters</span></td>
+        <td class="num">$0.0035</td>
+        <td class="num">$0.0035</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Cartesia Sonic-3<br><span class="note">Per 1M characters</span></td>
+        <td class="num">$65</td>
+        <td class="num">$65</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Orpheus TTS<br><span class="note">Per 1M characters</span></td>
+        <td class="num">$15</td>
+        <td class="num">$15</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Kokoro-82M TTS<br><span class="note">Per 1M characters</span></td>
+        <td class="num">$4</td>
+        <td class="num">$4</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td class="provider">Together AI</td>
+        <td>Cartesia Sonic-2<br><span class="note">Per 1M characters</span></td>
+        <td class="num">$65</td>
+        <td class="num">$65</td>
+        <td class="num">—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Change log</h2>
+<div class="panel">
+    <p class="empty">No changes recorded yet. The first run establishes the baseline;
+    changes appear from the second run onward.</p>
+</div>
+
+<footer>
+  Built by <a href="https://www.linkedin.com/in/mahyra-afif">Mahyra Afif</a> ·
+  <a href="https://github.com/USERNAME/ai-price-watch">source on GitHub</a> ·
+  Prices are read from each provider's public pricing page and may lag or
+  misread tiered pricing. Check the provider before relying on a number.
+</footer>
+
+</div>
+</body>
+</html>

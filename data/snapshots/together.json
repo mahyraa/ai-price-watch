@@ -1,0 +1,232 @@
+{
+  "fetched_at": "2026-09-02T22:37:16+00:00",
+  "models": [
+    {
+      "context_window": null,
+      "input_per_mtok": 0.3,
+      "name": "MiniMax M3",
+      "notes": "",
+      "output_per_mtok": 1.2
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 3.0,
+      "name": "Kimi K3",
+      "notes": "",
+      "output_per_mtok": 15.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.14,
+      "name": "DeepSeek V4 Flash 0731",
+      "notes": "",
+      "output_per_mtok": 0.28
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 2.0,
+      "name": "Qwen3.8-2.4T-A95B",
+      "notes": "",
+      "output_per_mtok": 6.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.35,
+      "name": "Muse Glimmer 30B",
+      "notes": "",
+      "output_per_mtok": 1.5
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.32,
+      "name": "DeepSeek V4 Pro 0813",
+      "notes": "",
+      "output_per_mtok": 3.96
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.4,
+      "name": "GLM-5.3",
+      "notes": "",
+      "output_per_mtok": 4.4
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.15,
+      "name": "GLM-5.3-Flash",
+      "notes": "",
+      "output_per_mtok": 0.5
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.39,
+      "name": "Gemma 4 31B",
+      "notes": "",
+      "output_per_mtok": 0.97
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.32,
+      "name": "Qwen3.7-Plus",
+      "notes": "",
+      "output_per_mtok": 1.28
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.4,
+      "name": "GLM-5.2",
+      "notes": "",
+      "output_per_mtok": 4.4
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.0,
+      "name": "Ternary Bonsai 27B",
+      "notes": "",
+      "output_per_mtok": 0.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.0,
+      "name": "Inkling",
+      "notes": "",
+      "output_per_mtok": 4.05
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.03,
+      "name": "LFM2.5-8B-A1B",
+      "notes": "",
+      "output_per_mtok": 0.12
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.15,
+      "name": "Qwen3.8 Flash",
+      "notes": "",
+      "output_per_mtok": 0.47
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.25,
+      "name": "Qwen3.7-Max",
+      "notes": "",
+      "output_per_mtok": 3.75
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.15,
+      "name": "gpt-oss-120B",
+      "notes": "",
+      "output_per_mtok": 0.6
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.6,
+      "name": "Qwen3.5-397B-A17B",
+      "notes": "",
+      "output_per_mtok": 3.6
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.17,
+      "name": "Qwen3.5 9B",
+      "notes": "",
+      "output_per_mtok": 0.25
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.25,
+      "name": "Cogito v2.1 671B",
+      "notes": "",
+      "output_per_mtok": 1.25
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.15,
+      "name": "Rnj-1 Instruct",
+      "notes": "",
+      "output_per_mtok": 0.15
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.04,
+      "name": "Llama 3.3 70B",
+      "notes": "",
+      "output_per_mtok": 1.04
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.3,
+      "name": "MiniMax M2.7",
+      "notes": "",
+      "output_per_mtok": 1.2
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.5,
+      "name": "Qwen3.6-Plus",
+      "notes": "",
+      "output_per_mtok": 3.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.3,
+      "name": "Qwen2.5 7B Instruct Turbo",
+      "notes": "",
+      "output_per_mtok": 0.3
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.14,
+      "name": "Llama 3 8B Instruct Lite",
+      "notes": "",
+      "output_per_mtok": 0.14
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.2,
+      "name": "Qwen3 235B A22B Instruct 2507 FP8 Throughput",
+      "notes": "",
+      "output_per_mtok": 0.6
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.0035,
+      "name": "NVIDIA Parakeet TDT 0.6B V3 Realtime",
+      "notes": "Per 1M characters",
+      "output_per_mtok": 0.0035
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 65.0,
+      "name": "Cartesia Sonic-3",
+      "notes": "Per 1M characters",
+      "output_per_mtok": 65.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 15.0,
+      "name": "Orpheus TTS",
+      "notes": "Per 1M characters",
+      "output_per_mtok": 15.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 4.0,
+      "name": "Kokoro-82M TTS",
+      "notes": "Per 1M characters",
+      "output_per_mtok": 4.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 65.0,
+      "name": "Cartesia Sonic-2",
+      "notes": "Per 1M characters",
+      "output_per_mtok": 65.0
+    }
+  ],
+  "provider": "together",
+  "provider_name": "Together AI",
+  "source_url": "https://www.together.ai/pricing"
+}

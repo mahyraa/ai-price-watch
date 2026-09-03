@@ -1,0 +1,92 @@
+{
+  "fetched_at": "2026-09-02T22:36:23+00:00",
+  "models": [
+    {
+      "context_window": null,
+      "input_per_mtok": 4.0,
+      "name": "gpt-5.6-sol",
+      "notes": "Standard tier with short context. Cached input $0.40/M, cache writes $20.00/M. Long context: input $8.00/M, output $10.00/M. Batch, Flex, and Fast mode tiers available at different rates. Promotional pricing available at least through November 21, 2026.",
+      "output_per_mtok": 5.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 2.0,
+      "name": "gpt-5.6-terra",
+      "notes": "Standard tier with short context. Cached input $0.20/M, cache writes $12.00/M. Long context: input $4.00/M, output $5.00/M. Batch, Flex, and Fast mode tiers available at different rates.",
+      "output_per_mtok": 2.5
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.2,
+      "name": "gpt-5.6-luna",
+      "notes": "Standard tier with short context. Cached input $0.02/M, cache writes $1.20/M. Long context: input $0.40/M, output $0.50/M. Batch, Flex, and Fast mode tiers available at different rates.",
+      "output_per_mtok": 0.25
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 12.5,
+      "name": "gpt-5.6-cyber",
+      "notes": "Short context only. Cached input $1.25/M, cache writes $75.00/M. Daybreak cyber model.",
+      "output_per_mtok": 15.625
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 4.0,
+      "name": "gpt-realtime-2.1",
+      "notes": "Text modality rates. Audio: input $32.00/M, cached input $0.40/M, output $64.00/M. Image: input $5.00/M, cached input $0.50/M.",
+      "output_per_mtok": 24.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.6,
+      "name": "gpt-realtime-2.1-mini",
+      "notes": "Text modality rates. Audio: input $10.00/M, cached input $0.30/M, output $20.00/M. Image: input $0.80/M, cached input $0.08/M.",
+      "output_per_mtok": 2.4
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 5.0,
+      "name": "gpt-image-2",
+      "notes": "Text modality rates (standard tier). Image modality: input $8.00/M, cached input $2.00/M, output $30.00/M. Batch rates available.",
+      "output_per_mtok": 30.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 5.0,
+      "name": "chat-latest",
+      "notes": "ChatGPT specialized model. Cached input $0.50/M. Fast mode available at $10.00/M input, $60.00/M output.",
+      "output_per_mtok": 30.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.75,
+      "name": "gpt-5.3-codex",
+      "notes": "Codex specialized model. Cached input $0.175/M. Fast mode available at $3.50/M input, $28.00/M output.",
+      "output_per_mtok": 14.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 4.0,
+      "name": "o4-mini-2025-04-16",
+      "notes": "Fine-tuning inference pricing (standard tier). Cached input $1.00/M. Training: $100.00/hour. Batch rates available. Data sharing discount available.",
+      "output_per_mtok": 16.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 2.5,
+      "name": "gpt-4o-transcribe",
+      "notes": "Transcription model.",
+      "output_per_mtok": 10.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.25,
+      "name": "gpt-4o-mini-transcribe",
+      "notes": "Transcription model.",
+      "output_per_mtok": 5.0
+    }
+  ],
+  "provider": "openai",
+  "provider_name": "OpenAI",
+  "source_url": "https://platform.openai.com/docs/pricing"
+}

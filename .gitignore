@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+data/raw/
+.DS_Store
+
+# local scratch, not part of the project
+_diagnostic.txt
+check.command

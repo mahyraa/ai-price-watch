@@ -1,0 +1,44 @@
+name: watch
+
+on:
+  schedule:
+    # 09:00 UTC every Monday. Cron here is always UTC.
+    - cron: "0 9 * * 1"
+  workflow_dispatch: {}   # lets you trigger a run by hand from the Actions tab
+
+permissions:
+  contents: write         # needed to commit the new snapshots back
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m pytest tests/ -q
+
+      - name: Run the watcher
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python -m src.run
+
+      - name: Commit snapshots and site
+        run: |
+          git config user.name  "ai-price-watch"
+          git config user.email "actions@github.com"
+          git add data/ site/
+          if git diff --staged --quiet; then
+            echo "nothing changed this run"
+          else
+            git commit -m "watch: $(date -u +%Y-%m-%d)"
+            git push
+          fi

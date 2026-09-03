@@ -1,0 +1,29 @@
+{
+  "fetched_at": "2026-09-02T22:36:56+00:00",
+  "models": [
+    {
+      "context_window": 1000000,
+      "input_per_mtok": 0.22,
+      "name": "deepseek-v4-flash",
+      "notes": "Cache miss off-peak rate used as base; peak rates are 2x (input $0.44/M, output $1.32/M). Cache hit rate: $0.007/M input. Image tokens billed as input tokens.",
+      "output_per_mtok": 0.66
+    },
+    {
+      "context_window": 1000000,
+      "input_per_mtok": 0.66,
+      "name": "deepseek-v4-pro",
+      "notes": "Cache miss off-peak rate used as base; peak rates are 2x (input $1.32/M, output $3.96/M). Cache hit rate: $0.022/M input.",
+      "output_per_mtok": 1.98
+    },
+    {
+      "context_window": 1000000,
+      "input_per_mtok": 0.22,
+      "name": "deepseek-v4-flash-vision-exp",
+      "notes": "Cache miss off-peak rate used as base; peak rates are 2x (input $0.44/M, output $1.32/M). Cache hit rate: $0.007/M input. Image tokens billed as input tokens.",
+      "output_per_mtok": 0.66
+    }
+  ],
+  "provider": "deepseek",
+  "provider_name": "DeepSeek",
+  "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
+}

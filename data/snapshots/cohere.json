@@ -1,0 +1,57 @@
+{
+  "fetched_at": "2026-09-02T22:37:00+00:00",
+  "models": [
+    {
+      "context_window": null,
+      "input_per_mtok": 1.0,
+      "name": "Command",
+      "notes": "Legacy model pricing for existing customers",
+      "output_per_mtok": 2.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.3,
+      "name": "Command-light",
+      "notes": "Legacy model pricing for existing customers",
+      "output_per_mtok": 0.6
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.5,
+      "name": "Command R 03-2024",
+      "notes": "Legacy model pricing for existing customers",
+      "output_per_mtok": 1.5
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 3.0,
+      "name": "Command R+ 04-2024",
+      "notes": "Legacy model pricing for existing customers",
+      "output_per_mtok": 15.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 2.5,
+      "name": "Command R+ 08-2024",
+      "notes": "Legacy model pricing for existing customers",
+      "output_per_mtok": 10.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.5,
+      "name": "Aya Expanse 8B",
+      "notes": "Research model via API",
+      "output_per_mtok": 1.5
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.5,
+      "name": "Aya Expanse 32B",
+      "notes": "Research model via API",
+      "output_per_mtok": 1.5
+    }
+  ],
+  "provider": "cohere",
+  "provider_name": "Cohere",
+  "source_url": "https://cohere.com/pricing"
+}

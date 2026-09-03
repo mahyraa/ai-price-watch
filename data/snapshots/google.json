@@ -1,0 +1,267 @@
+{
+  "fetched_at": "2026-09-02T22:36:50+00:00",
+  "models": [
+    {
+      "context_window": null,
+      "input_per_mtok": 0.75,
+      "name": "gemini-3.8-flash",
+      "notes": "Paid tier standard pricing through Dec 31, 2026. Increases to $1.50 input / $7.50 output starting Jan 1, 2027.",
+      "output_per_mtok": 3.75
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.75,
+      "name": "gemini-3.7-flash",
+      "notes": "Paid tier standard pricing through Dec 31, 2026. Increases to $1.50 input / $7.50 output starting Jan 1, 2027.",
+      "output_per_mtok": 3.75
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.75,
+      "name": "gemini-3.6-flash",
+      "notes": "Paid tier standard pricing through Dec 31, 2026. Increases to $1.50 input / $7.50 output starting Jan 1, 2027.",
+      "output_per_mtok": 3.75
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.5,
+      "name": "gemini-3.5-flash",
+      "notes": "",
+      "output_per_mtok": 9.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 3.5,
+      "name": "gemini-3.5-live-translate-preview",
+      "notes": "Audio modality. Alternative pricing: $0.0053/min input, $0.0315/min output.",
+      "output_per_mtok": 21.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 3.5,
+      "name": "gemini-3.5-transcribe-live",
+      "notes": "Using text rate as primary. Audio input at $3.50/M, text output at $21.00/M tokens.",
+      "output_per_mtok": 21.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 2.0,
+      "name": "gemini-3.5-transcribe",
+      "notes": "Audio input, text output.",
+      "output_per_mtok": 12.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.3,
+      "name": "gemini-3.5-flash-lite",
+      "notes": "Text/image/video/audio unified pricing for input.",
+      "output_per_mtok": 2.5
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.25,
+      "name": "gemini-3.1-flash-lite",
+      "notes": "Text rate. Audio input: $0.50/M.",
+      "output_per_mtok": 1.5
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.5,
+      "name": "gemini-omni-1.1-flash",
+      "notes": "Text output rate. Video output: $17.50/M tokens.",
+      "output_per_mtok": 9.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.5,
+      "name": "gemini-omni-flash-preview",
+      "notes": "Text output rate. Video output: $17.50/M tokens.",
+      "output_per_mtok": 9.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 2.0,
+      "name": "gemini-3.1-pro-preview",
+      "notes": "Tiered pricing: $2.00/$12.00 for prompts \u2264200k tokens, $4.00/$18.00 for prompts >200k tokens.",
+      "output_per_mtok": 12.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 2.0,
+      "name": "gemini-3.1-pro-preview-customtools",
+      "notes": "Tiered pricing: $2.00/$12.00 for prompts \u2264200k tokens, $4.00/$18.00 for prompts >200k tokens.",
+      "output_per_mtok": 12.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.75,
+      "name": "gemini-3.1-flash-live-preview",
+      "notes": "Text rate. Audio input: $3.00/M, audio output: $12.00/M. Image/video input: $1.00/M.",
+      "output_per_mtok": 4.5
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.5,
+      "name": "gemini-3.1-flash-image",
+      "notes": "Text output rate. Image output: $60.00/M tokens.",
+      "output_per_mtok": 3.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.25,
+      "name": "gemini-3.1-flash-lite-image",
+      "notes": "Text output rate. Image output: $30.00/M tokens.",
+      "output_per_mtok": 1.5
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.0,
+      "name": "gemini-3.1-flash-tts-preview",
+      "notes": "Text input, audio output.",
+      "output_per_mtok": 20.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.5,
+      "name": "gemini-3-flash-preview",
+      "notes": "Text/image/video rate. Audio input: $1.00/M.",
+      "output_per_mtok": 3.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 2.0,
+      "name": "gemini-3-pro-image",
+      "notes": "Text output rate. Image output: $120.00/M tokens.",
+      "output_per_mtok": 12.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.25,
+      "name": "gemini-2.5-pro",
+      "notes": "Tiered pricing: $1.25/$10.00 for prompts \u2264200k tokens, $2.50/$15.00 for prompts >200k tokens.",
+      "output_per_mtok": 10.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.3,
+      "name": "gemini-2.5-flash",
+      "notes": "Text/image/video rate. Audio input: $1.00/M.",
+      "output_per_mtok": 2.5
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.1,
+      "name": "gemini-2.5-flash-lite",
+      "notes": "Text/image/video rate. Audio input: $0.30/M.",
+      "output_per_mtok": 0.4
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.5,
+      "name": "gemini-2.5-flash-native-audio-preview-12-2025",
+      "notes": "Text input/output rate. Audio/video input: $3.00/M. Audio output: $12.00/M.",
+      "output_per_mtok": 2.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.3,
+      "name": "gemini-2.5-flash-image",
+      "notes": "Text input rate. Image output priced per image at $0.039.",
+      "output_per_mtok": 2.5
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.5,
+      "name": "gemini-2.5-flash-preview-tts",
+      "notes": "Text input, audio output.",
+      "output_per_mtok": 10.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.0,
+      "name": "gemini-2.5-pro-preview-tts",
+      "notes": "Text input, audio output.",
+      "output_per_mtok": 20.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": null,
+      "name": "veo-3.1-generate-preview",
+      "notes": "Priced per second of video, not per token: $0.40 (720p/1080p), $0.60 (4k). Not included in token-based pricing.",
+      "output_per_mtok": null
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": null,
+      "name": "veo-3.1-fast-generate-preview",
+      "notes": "Priced per second of video, not per token: $0.10 (720p), $0.12 (1080p), $0.30 (4k). Not included in token-based pricing.",
+      "output_per_mtok": null
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": null,
+      "name": "veo-3.1-lite-generate-preview",
+      "notes": "Priced per second of video, not per token: $0.05 (720p), $0.08 (1080p). Not included in token-based pricing.",
+      "output_per_mtok": null
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": null,
+      "name": "lyria-3-clip-preview",
+      "notes": "Priced per song request ($0.04), not per token. Not included in token-based pricing.",
+      "output_per_mtok": null
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": null,
+      "name": "lyria-3-pro-preview",
+      "notes": "Priced per song request ($0.08), not per token. Not included in token-based pricing.",
+      "output_per_mtok": null
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.2,
+      "name": "gemini-embedding-2",
+      "notes": "Text input rate. Image input: $0.45/M. Audio input: $6.50/M. Video input: $12.00/M. No output tokens for embedding.",
+      "output_per_mtok": null
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.15,
+      "name": "gemini-embedding-001",
+      "notes": "Text-only embedding model. No output tokens.",
+      "output_per_mtok": null
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 2.0,
+      "name": "gemini-robotics-er-2-preview",
+      "notes": "",
+      "output_per_mtok": 10.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 2.0,
+      "name": "gemini-robotics-er-2-streaming-preview",
+      "notes": "",
+      "output_per_mtok": 10.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.0,
+      "name": "gemini-robotics-er-1.6-preview",
+      "notes": "Text/image/video rate. Audio input: $2.00/M.",
+      "output_per_mtok": 5.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.25,
+      "name": "gemini-2.5-computer-use-preview-10-2025",
+      "notes": "Tiered pricing: $1.25/$10.00 for prompts \u2264200k tokens, $2.50/$15.00 for prompts >200k tokens.",
+      "output_per_mtok": 10.0
+    }
+  ],
+  "provider": "google",
+  "provider_name": "Google (Gemini)",
+  "source_url": "https://ai.google.dev/gemini-api/docs/pricing"
+}

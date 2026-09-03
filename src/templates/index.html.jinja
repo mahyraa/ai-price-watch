@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Price Watch — token pricing across {{ providers|length }} providers</title>
+<meta name="description" content="Tracks published API pricing across major AI model providers and reports what changed each week.">
+<style>
+  :root {
+    --bg: #fbfaf9; --panel: #ffffff; --ink: #1a1815; --muted: #6b6560;
+    --line: #e6e1db; --accent: #b4551f; --up: #a8341f; --down: #2c6e49;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #171614; --panel: #201e1c; --ink: #efece8; --muted: #9c948c;
+      --line: #322e2a; --accent: #e08a4f; --up: #e8735c; --down: #6bbf8f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 48px 24px 80px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 36px; }
+  h1 { font-size: 30px; letter-spacing: -0.02em; margin: 0 0 8px; }
+  .sub { color: var(--muted); margin: 0; max-width: 62ch; }
+  .meta { margin-top: 16px; font-size: 13px; color: var(--muted); font-family: var(--mono); }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.09em;
+       color: var(--muted); margin: 44px 0 14px; font-weight: 600; }
+  .panel { background: var(--panel); border: 1px solid var(--line);
+           border-radius: 10px; padding: 22px 24px; }
+  .digest p { margin: 0 0 12px; }
+  .digest p:last-child { margin-bottom: 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase;
+       letter-spacing: 0.05em; color: var(--muted); padding: 0 12px 10px 0;
+       border-bottom: 1px solid var(--line); }
+  td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .num { font-family: var(--mono); text-align: right; white-space: nowrap; }
+  .provider { font-weight: 600; }
+  .note { color: var(--muted); font-size: 12px; }
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .change { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .change:last-child { border-bottom: none; }
+  .change .when { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .tag { display: inline-block; font-size: 11px; font-family: var(--mono);
+         padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line);
+         color: var(--muted); margin-right: 8px; }
+  .tag.major { color: var(--accent); border-color: var(--accent); }
+  .up { color: var(--up); } .down { color: var(--down); }
+  .empty { color: var(--muted); font-style: italic; }
+  .broken { border-left: 3px solid var(--up); padding-left: 14px; }
+  footer { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line);
+           font-size: 13px; color: var(--muted); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>AI Price Watch</h1>
+  <p class="sub">Published API pricing across {{ providers|length }} model providers,
+  re-checked weekly. Prices are extracted into a normalized record per model, so a
+  page redesign doesn't register as a change — only the pricing does.</p>
+  <p class="meta">Last run {{ generated_at }} · {{ model_count }} models tracked · {{ run_count }} runs recorded</p>
+</header>
+
+<h2>This week</h2>
+<div class="panel digest">
+  {% for para in digest_paragraphs %}<p>{{ para }}</p>{% endfor %}
+</div>
+
+{% if broken %}
+<h2>Sources needing attention</h2>
+<div class="panel broken">
+  <p style="margin:0">Extraction returned fewer models than expected for:
+  {{ broken|join(', ') }}. Their pages likely changed structure — the numbers below
+  for these providers are from the last good run.</p>
+</div>
+{% endif %}
+
+<h2>Current pricing</h2>
+<div class="panel scroll">
+  <table>
+    <thead>
+      <tr>
+        <th>Provider</th><th>Model</th>
+        <th class="num">Input&nbsp;/&nbsp;1M</th>
+        <th class="num">Output&nbsp;/&nbsp;1M</th>
+        <th class="num">Context</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for row in pricing_rows %}
+      <tr>
+        <td class="provider">{{ row.provider }}</td>
+        <td>{{ row.name }}{% if row.notes %}<br><span class="note">{{ row.notes }}</span>{% endif %}</td>
+        <td class="num">{{ row.input }}</td>
+        <td class="num">{{ row.output }}</td>
+        <td class="num">{{ row.context }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<h2>Change log</h2>
+<div class="panel">
+  {% if archive %}
+    {% for entry in archive %}
+      <div class="change">
+        <div class="when">{{ entry.date }}</div>
+        {% for c in entry.changes %}
+          <div>
+            <span class="tag {{ c.severity }}">{{ c.severity }}</span>
+            <span class="{{ c.direction }}">{{ c.text }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="empty">No changes recorded yet. The first run establishes the baseline;
+    changes appear from the second run onward.</p>
+  {% endif %}
+</div>
+
+<footer>
+  Built by <a href="{{ author_url }}">{{ author }}</a> ·
+  <a href="{{ repo_url }}">source on GitHub</a> ·
+  Prices are read from each provider's public pricing page and may lag or
+  misread tiered pricing. Check the provider before relying on a number.
+</footer>
+
+</div>
+</body>
+</html>

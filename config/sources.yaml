@@ -1,0 +1,67 @@
+# Sources the watcher monitors.
+#
+# Each source is a provider whose public pricing page we snapshot.
+#
+#   key          stable id, used as the snapshot filename. Never change it once
+#                live, or you lose that provider's history.
+#   name         display name for the site
+#   url          the public pricing page
+#   expect_min   minimum number of models we expect to extract. If a run comes
+#                back under this, the source is treated as BROKEN rather than
+#                "no models" — this is what stops a silently-dead scraper from
+#                reporting "nothing changed" forever.
+#
+# To add a provider: add a block here. No code changes needed.
+#
+# Removed: xAI, Groq, Fireworks — they render pricing client-side in
+# JavaScript, so plain HTTP returns a page with no numbers in it. Adding them
+# back would need a headless browser, which isn't worth the maintenance.
+
+sources:
+  - key: anthropic
+    name: Anthropic
+    url: https://platform.claude.com/docs/en/about-claude/pricing
+    expect_min: 5
+
+  - key: openai
+    name: OpenAI
+    url: https://platform.openai.com/docs/pricing
+    expect_min: 5
+
+  - key: google
+    name: Google (Gemini)
+    url: https://ai.google.dev/gemini-api/docs/pricing
+    expect_min: 5
+
+  - key: mistral
+    name: Mistral
+    url: https://mistral.ai/pricing
+    expect_min: 3
+
+  - key: deepseek
+    name: DeepSeek
+    url: https://api-docs.deepseek.com/quick_start/pricing/
+    expect_min: 2
+
+  - key: cohere
+    name: Cohere
+    url: https://cohere.com/pricing
+    expect_min: 2
+
+  - key: together
+    name: Together AI
+    url: https://www.together.ai/pricing
+    expect_min: 3
+
+
+# Models used for the two LLM steps. Extraction is high-volume and mechanical,
+# so it runs on the cheap model; the digest is written once per run and wants
+# the better one.
+models:
+  extract: claude-haiku-4-5-20251001
+  summarize: claude-sonnet-5
+
+# A price move smaller than this (as a fraction) is recorded but not treated as
+# a headline change. 0.05 = 5%.
+thresholds:
+  major_price_move: 0.05

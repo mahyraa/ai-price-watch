@@ -1,0 +1,127 @@
+{
+  "fetched_at": "2026-09-02T22:36:15+00:00",
+  "models": [
+    {
+      "context_window": null,
+      "input_per_mtok": 10.0,
+      "name": "Claude Fable 5.1",
+      "notes": "",
+      "output_per_mtok": 50.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 10.0,
+      "name": "Claude Mythos 5.1",
+      "notes": "limited availability",
+      "output_per_mtok": 50.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 10.0,
+      "name": "Claude Fable 5",
+      "notes": "",
+      "output_per_mtok": 50.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 10.0,
+      "name": "Claude Mythos 5",
+      "notes": "limited availability",
+      "output_per_mtok": 50.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 5.0,
+      "name": "Claude Opus 5",
+      "notes": "",
+      "output_per_mtok": 25.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 5.0,
+      "name": "Claude Opus 4.8",
+      "notes": "",
+      "output_per_mtok": 25.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 5.0,
+      "name": "Claude Opus 4.7",
+      "notes": "",
+      "output_per_mtok": 25.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 5.0,
+      "name": "Claude Opus 4.6",
+      "notes": "",
+      "output_per_mtok": 25.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 5.0,
+      "name": "Claude Opus 4.5",
+      "notes": "",
+      "output_per_mtok": 25.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 15.0,
+      "name": "Claude Opus 4.1",
+      "notes": "retired, except on Bedrock and Google Cloud",
+      "output_per_mtok": 75.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 15.0,
+      "name": "Claude Opus 4",
+      "notes": "retired, except on Google Cloud",
+      "output_per_mtok": 75.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 2.0,
+      "name": "Claude Sonnet 5",
+      "notes": "",
+      "output_per_mtok": 10.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 3.0,
+      "name": "Claude Sonnet 4.6",
+      "notes": "",
+      "output_per_mtok": 15.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 3.0,
+      "name": "Claude Sonnet 4.5",
+      "notes": "",
+      "output_per_mtok": 15.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 3.0,
+      "name": "Claude Sonnet 4",
+      "notes": "retired, except on Bedrock and Google Cloud",
+      "output_per_mtok": 15.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 1.0,
+      "name": "Claude Haiku 4.5",
+      "notes": "",
+      "output_per_mtok": 5.0
+    },
+    {
+      "context_window": null,
+      "input_per_mtok": 0.8,
+      "name": "Claude Haiku 3.5",
+      "notes": "retired, except on Bedrock and Google Cloud",
+      "output_per_mtok": 4.0
+    }
+  ],
+  "provider": "anthropic",
+  "provider_name": "Anthropic",
+  "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+}
