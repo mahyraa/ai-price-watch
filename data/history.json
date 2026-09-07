@@ -5,5 +5,20 @@
     "digest": "Baseline established.",
     "broken": [],
     "changes": []
+  },
+  {
+    "date": "2026-09-07",
+    "ran_at": "2026-09-07T09:10:58+00:00",
+    "digest": "No pricing changes detected across the tracked providers this run.",
+    "broken": [
+      "Anthropic",
+      "OpenAI",
+      "Google (Gemini)",
+      "Mistral",
+      "DeepSeek",
+      "Cohere",
+      "Together AI"
+    ],
+    "changes": []
   }
 ]
