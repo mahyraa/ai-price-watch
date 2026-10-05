@@ -65,5 +65,20 @@
       "Together AI"
     ],
     "changes": []
+  },
+  {
+    "date": "2026-10-05",
+    "ran_at": "2026-10-05T09:12:43+00:00",
+    "digest": "No pricing changes detected across the tracked providers this run.",
+    "broken": [
+      "Anthropic",
+      "OpenAI",
+      "Google (Gemini)",
+      "Mistral",
+      "DeepSeek",
+      "Cohere",
+      "Together AI"
+    ],
+    "changes": []
   }
 ]
